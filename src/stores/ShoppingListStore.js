@@ -42,6 +42,7 @@ export const useShoppingListStore = defineStore('ShoppingList', {
       if (list.articles.find((item) => item.id == data.id)) {
         console.log('Daten gibt es schon')
       } else {
+        data = { ...data, quantity: 0 }
         list.articles.push(data)
       }
       this.saveToLocalStorage()

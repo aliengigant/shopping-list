@@ -47,6 +47,14 @@ export const useShoppingListStore = defineStore('ShoppingList', {
       }
       this.saveToLocalStorage()
     },
+    deleteArticleFromList(listID, articleID) {
+      const list = this.getListById(listID)
+      list.articles = list.articles.filter((item) => {
+        return item.id != articleID
+      })
+      console.log(list)
+      this.saveToLocalStorage()
+    },
     changeListAttributes(id, name, description) {
       const list = this.getListById(id)
       list.name = name
@@ -56,6 +64,11 @@ export const useShoppingListStore = defineStore('ShoppingList', {
       })
       newList.push(list)
       this.saveToLocalStorage(newList)
+    },
+    changeQuantity(listID, articleid, quantity) {
+      const list = this.getListById(listID)
+      const article = list.articles.find((article) => article.id == articleid)
+      article.quantity = quantity
     },
     saveToLocalStorage() {
       localStorage.setItem('ShoppingList', JSON.stringify(this.$state.lists))

@@ -58,14 +58,6 @@
   <div class="displayTitel">
     <h1 class="display-1">{{ Einkaufsliste.name }}</h1>
     <h3 class="h3">{{ Einkaufsliste.description }}</h3>
-    <ul class="list-group">
-      <ArticleItem
-        v-for="article in Einkaufsliste.articles"
-        :key="article.id"
-        :article="article"
-        :list-i-d="Einkaufsliste.id"
-      ></ArticleItem>
-    </ul>
     <div class="dropdown">
       <button
         class="btn btn-secondary dropdown-toggle"
@@ -81,7 +73,16 @@
         </li>
       </ul>
     </div>
+    <ul class="list-group">
+      <ArticleItem
+        v-for="article in Einkaufsliste.articles"
+        :key="article.id"
+        :article="article"
+        :list-i-d="Einkaufsliste.id"
+      ></ArticleItem>
+    </ul>
   </div>
+
 </template>
 
 <script setup>

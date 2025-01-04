@@ -65,7 +65,7 @@
         data-bs-toggle="dropdown"
         aria-expanded="false"
       >
-        Dropdown button
+        Artikeln
       </button>
       <ul class="dropdown-menu">
         <li v-for="item of articel" :key="item.id">

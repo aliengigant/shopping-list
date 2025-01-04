@@ -23,7 +23,7 @@
         class="btn btn-success hover-button"
         @click="deleteArticle(props.article.id)"
       >
-      <i class="fa fa-trash" aria-hidden="true"></i>
+        <i class="fa fa-trash" aria-hidden="true"></i>
       </button>
     </transition>
   </li>
@@ -79,8 +79,10 @@ function deleteArticle(id) {
 
 <style scoped>
 .quantityInput {
-  height: align-self;
   width: 18%;
+  border-radius: 13px;
+  background-color: #e9e3e3;
+  text-align: center;
 }
 .articleItem {
   background: #b3a2a2;
@@ -102,7 +104,7 @@ function deleteArticle(id) {
   transition: all 0.3s ease;
   border-radius: 16px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(125, 41, 65, 0.774);
+  border: 1px solid rgba(0, 0, 0, 0.774);
   background-color: #4b2637;
   color: #b3a2a2;
 }

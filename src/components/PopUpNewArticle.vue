@@ -121,6 +121,7 @@ function saveActive(id) {
   background-color: #4b2637;
   color: #e9e3e3;
   transition: 0.5s;
+  margin: 10px;
 }
 .buttton:hover {
   background-color: #793b58;

@@ -45,14 +45,13 @@
   <div class="row">
     <div class="col">
       <PopUpNewList></PopUpNewList>
-      <PopUpNewArticle></PopUpNewArticle>
+      <a href="/AllArticles">Alle Artikeln</a>
     </div>
   </div>
 </template>
 
 <script setup>
 import PopUpNewList from '@/components/PopUpNewList.vue'
-import PopUpNewArticle from '@/components/PopUpNewArticle.vue'
 import { useShoppingListStore } from '@/stores/ShoppingListStore'
 import { ref } from 'vue'
 

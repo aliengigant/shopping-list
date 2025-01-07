@@ -2,10 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useArticleStore = defineStore('ArticleStore', {
   state: () => ({
-    articles: [
-      { id: 0, name: 'Milch', category: 'Milchgetränke', bought: false },
-      { id: 1, name: 'Brot', category: 'Backwaren & Brot', bought: false },
-    ],
+    articles: [],
     foodCategory: [
       { id: 0, name: 'Obst & Gemüse' },
       { id: 1, name: 'Backwaren & Brot' },
@@ -40,6 +37,18 @@ export const useArticleStore = defineStore('ArticleStore', {
     getArticels(state) {
       return state.articles
     },
+    getFoodArticles() {
+      const allArticle = this.getArticels
+      return allArticle.filter((articel) => {
+        return articel.category == 'Essen'
+      })
+    },
+    getDrinkArticles() {
+      const allArticle = this.getArticels
+      return allArticle.filter((articel) => {
+        return articel.category == 'Getränke'
+      })
+    },
     getCat(state) {
       return (cat, catID) => {
         if (cat == 'Essen') {
@@ -60,10 +69,17 @@ export const useArticleStore = defineStore('ArticleStore', {
     },
     setStore(data) {
       console.log(data)
-      this.articles=[]
       for (let list of data) {
         this.articles.push(list)
       }
+      this.saveToLocalStorage()
+    },
+    deleteArticle(articleID) {
+      const newArticleList = this.articles.filter((article) => {
+        return article.id != articleID
+      })
+      this.articles = newArticleList
+      this.saveToLocalStorage()
     },
     saveToLocalStorage() {
       localStorage.setItem('Articles', JSON.stringify(this.$state.articles))

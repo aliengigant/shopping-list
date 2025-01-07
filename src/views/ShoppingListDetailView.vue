@@ -67,7 +67,7 @@
       >
         Artikeln
       </button>
-      <ul class="dropdown-menu">
+      <ul class="dropdown-menu" style="overflow-y: scroll; height: 600px">
         <li v-for="item of articel" :key="item.id">
           <a class="dropdown-item" @click.prevent="selectedItem(item)" href="#">{{ item.name }}</a>
         </li>
@@ -86,7 +86,7 @@
 </template>
 
 <script setup>
-import ArticleItem from '@/components/ArticleItem.vue'
+import ArticleItem from '@/components/ArticleDetailItem.vue'
 
 import PopUpNewArticle from '@/components/PopUpNewArticle.vue'
 import { useArticleStore } from '@/stores/Article'

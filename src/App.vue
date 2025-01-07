@@ -22,10 +22,12 @@ const ArticelsStore = useArticleStore()
 onBeforeMount(async () => {
   const storedDataShoppingList = localStorage.getItem('ShoppingList')
   const storedDataArticels = localStorage.getItem('Articles')
+  const parsedDataA = JSON.parse(storedDataArticels)
+  ArticelsStore.setStore(parsedDataA)
   if (storedDataShoppingList) {
     try {
       const parsedDataSL = JSON.parse(storedDataShoppingList)
-      const parsedDataA = JSON.parse(storedDataArticels)
+
       Einkaufsliste.setStore(parsedDataSL)
       ArticelsStore.setStore(parsedDataA)
       console.log('Daten wurden in den Store geladen xD')
@@ -44,6 +46,7 @@ body {
   background-size: 20px 20px;
   color: #7d2941;
   background-color: #e9e3e3;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial,
+    sans-serif;
 }
 </style>

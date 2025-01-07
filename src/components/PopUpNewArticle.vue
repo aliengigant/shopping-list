@@ -105,10 +105,14 @@ const GroupedCategories = computed(() => {
 function addArticel() {
   const newData = {
     id: ArticleList.getArticels.length,
-    name: ArticleName,
-    category: ArticleList.getCat(ChoosedCategory.value, activeID.value),
+    name: ArticleName.value,
+    category: ChoosedCategory.value,
+    subCategory: ArticleList.getCat(ChoosedCategory.value, activeID.value),
     bought: false,
   }
+  ChoosedCategory.value = null
+  ArticleName.value = null
+  activeID.value = null
   ArticleList.newArticle(newData)
 }
 function saveActive(id) {

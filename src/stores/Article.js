@@ -68,11 +68,9 @@ export const useArticleStore = defineStore('ArticleStore', {
       this.saveToLocalStorage()
     },
     setStore(data) {
-      console.log(data)
       for (let list of data) {
         this.articles.push(list)
       }
-      this.saveToLocalStorage()
     },
     deleteArticle(articleID) {
       const newArticleList = this.articles.filter((article) => {

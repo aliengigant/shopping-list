@@ -22,10 +22,10 @@ const ArticelsStore = useArticleStore()
 onBeforeMount(async () => {
   const storedDataShoppingList = localStorage.getItem('ShoppingList')
   const storedDataArticels = localStorage.getItem('Articles')
-  const parsedDataA = JSON.parse(storedDataArticels)
-  ArticelsStore.setStore(parsedDataA)
-  if (storedDataShoppingList) {
+  console.log(Einkaufsliste.getAllLists().length==0)
+  if (Einkaufsliste.getAllLists().length==0) {
     try {
+      const parsedDataA = JSON.parse(storedDataArticels)
       const parsedDataSL = JSON.parse(storedDataShoppingList)
 
       Einkaufsliste.setStore(parsedDataSL)
